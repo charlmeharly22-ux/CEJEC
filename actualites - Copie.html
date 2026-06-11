@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - CEJEC</title>
+  
+  <style>
+    /* ============ CONFIGURATION JENERAL & VARYAB ============ */
+    :root {
+      --white: #ffffff;
+      --blue: #0a4d8c;
+      --blue-dark: #073864;
+      --blue-light: #e8f1fa;
+      --red: #d62828;
+      --red-dark: #a81d1d;
+      --ink: #1a1f2b;
+      --muted: #5b6675;
+      --bg-soft: #f7f9fc;
+      --border: #e5ebf2;
+      --shadow-sm: 0 2px 8px rgba(10, 77, 140, 0.06);
+      --shadow-md: 0 8px 24px rgba(10, 77, 140, 0.1);
+      --shadow-lg: 0 20px 48px rgba(10, 77, 140, 0.16);
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 22px;
+      --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+      --container: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-soft);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    /* ============ SECTION HERO ============ */
+    .blog-hero {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .blog-hero p {
+      color: var(--blue-light);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* ============ SEARCH & FILTRES ============ */
+    .controls-wrapper {
+      margin-top: -30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .controls-card {
+      background: var(--white);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Search */
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px 20px 16px 48px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      background: var(--bg-soft);
+      color: var(--ink);
+      transition: all 0.3s var(--ease);
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--blue);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(10, 77, 140, 0.1);
+    }
+
+    .search-box .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    /* Filtres */
+    .filter-tags {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      scrollbar-width: none; /* Kache scrollbar Firefox */
+    }
+
+    .filter-tags::-webkit-scrollbar {
+      display: none; /* Kache scrollbar Chrome/Safari */
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      background: var(--bg-soft);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      border: 1px solid var(--border);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    /* ============ LISTE ARTICLES ============ */
+    .main-blog-content {
+      padding: 60px 0;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .article-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .article-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .card-img-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .article-card:hover .card-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--red);
+      color: var(--white);
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 12px;
+      /* Limit tèks la ak 2 liy */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-excerpt {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .author-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .read-more-btn {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ============ ARTICLE DETAILS (HIDDEN BY DEFAULT) ============ */
+    .article-details-view {
+      display: none; /* Kache par défaut */
+      padding: 60px 0;
+      animation: fadeIn 0.4s var(--ease) forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Bouton Retour */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 32px;
+      padding: 10px 16px;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: all 0.25s ease;
+    }
+
+    .back-btn:hover {
+      background: var(--blue-light);
+      transform: translateX(-4px);
+    }
+
+    /* Single Layout */
+    .single-article-layout {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .single-meta-tag {
+      background: var(--blue-light);
+      color: var(--blue);
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .single-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .single-author-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .single-author-bar .author-img {
+      width: 48px;
+      height: 48px;
+    }
+
+    .single-author-details h4 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .single-author-details p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Hero Image */
+    .single-hero-image {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Contenu long */
+    .single-content {
+      font-size: 1.1rem;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+
+    .single-content p {
+      margin-bottom: 24px;
+    }
+
+    .single-content h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 40px 0 16px;
+      color: var(--blue-dark);
+    }
+
+    /* Galerie */
+    .single-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .single-gallery img {
+      border-radius: var(--radius);
+      height: 240px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Vidéo */
+    .single-video-wrapper {
+      margin: 40px 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: #000;
+    }
+
+    /* Tags */
+    .single-tags-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .tag-item {
+      padding: 6px 14px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Partager */
+    .share-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 60px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .share-container span {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .share-btn {
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-soft);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .share-btn:hover {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    /* Articles similaires */
+    .related-section {
+      padding-top: 40px;
+      border-top: 2px solid var(--border);
+      margin-top: 60px;
+    }
+
+    .related-section h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    /* ============ RESPONSIVE BREAKPOINTS ============ */
+    @media (max-width: 768px) {
+      .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .single-gallery {
+        grid-template-columns: 1fr;
+      }
+      .share-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-blog-content, .article-details-view {
+        padding: 40px 0;
+      }
+      .controls-card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="blog-hero">
+    <div class="container">
+      <h1>Notre Actualité & Blog</h1>
+      <p>Retrouvez les dernières publications, analyses, conseils et événements du Club des Jeunes Entrepreneurs du Centre.</p>
+    </div>
+  </section>
+
+  <div class="controls-wrapper">
+    <div class="container">
+      <div class="controls-card">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Rechercher un article ou un sujet...">
+        </div>
+        <div class="filter-tags">
+          <button class="filter-btn active">Tout voir</button>
+          <button class="filter-btn">Entrepreneuriat</button>
+          <button class="filter-btn">Innovation</button>
+          <button class="filter-btn">Événements</button>
+          <button class="filter-btn">Études</button>
+          <button class="filter-btn">Conseils</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-blog-content" id="listView">
+    <div class="container">
+      <div class="articles-grid">
+        
+        <article class="article-card" onclick="openArticle('art-1')">
+          <div class="card-img-wrapper">
+            <span class="card-badge">Entrepreneuriat</span>
+            <img src="https://picsum.photos/id/1/600/400" alt="Lancement CEJEC">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>📅 10 Mai 2026</span>
+              <span>⏱️ 5 min de lecture</span>
+            </div>
+            <h3 class="card-title">Comment structurer son business plan pour le marché haïtien en 2026</h3>
+            <p class="card-excerpt">Lancer une entreprise exige une planification rigoureuse adaptée aux réalités locales. Découvrez les étapes indispensables pour convaincre les investisseurs.</p>
+            <div class="card-footer">
+              <div class="author-info">
+                <img src="https://i.pravatar.cc/100?img=33" alt="Jean-Pierre" class="author-img">
+                <span class="author-name">Jean-Pierre Marc</span>
+              </div>
+              <span class="read-more-btn">Lire →</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card" onclick="openArticle('art-2')">
+          <div class="card-img-wrapper">
+            <span class="card-badge">Innovation</span>
+            <img src="https://picsum.photos/id/2/600/400" alt="Tech Hub">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>📅 02 Mai 2026</span>
+              <span>⏱️ 4 min de lecture</span>
+            </div>
+            <h3 class="card-title">La transformation digitale au service des PME du Centre</h3>
+            <p class="card-excerpt">Les outils numériques transforment la productivité des jeunes entreprises. Ce guide pratique vous montre comment intégrer le digital sans budget colossal.</p>
+            <div class="card-footer">
+              <div class="author-info">
+                <img src="https://i.pravatar.cc/100?img=47" alt="Sarah" class="author-img">
+                <span class="author-name">Sarah Williamson</span>
+              </div>
+              <span class="read-more-btn">Lire →</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card" onclick="openArticle('art-3')">
+          <div class="card-img-wrapper">
+            <span class="card-badge">Événements</span>
+            <img src="https://picsum.photos/id/3/600/400" alt="Forum">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>📅 24 Avril 2026</span>
+              <span>⏱️ 6 min de lecture</span>
+            </div>
+            <h3 class="card-title">Retour sur le grand Forum Annuel des Jeunes Entrepreneurs</h3>
+            <p class="card-excerpt">Plus de 200 participants se sont réunis pour échanger sur l'avenir économique de la région Centre. Synthèse des meilleures interventions et opportunités.</p>
+            <div class="card-footer">
+              <div class="author-info">
+                <img src="https://i.pravatar.cc/100?img=12" alt="Dieunal" class="author-img">
+                <span class="author-name">Dieunal Jean</span>
+              </div>
+              <span class="read-more-btn">Lire →</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <section class="article-details-view" id="detailsView">
+    <div class="container">
+      <div class="single-article-layout">
+        
+        <button class="back-btn" onclick="closeArticle()">← Retour aux articles</button>
+
+        <div id="dynamic-content">
+          <span class="single-meta-tag">Entrepreneuriat</span>
+          <h1 class="single-title">Comment structurer son business plan pour le marché haïtien en 2026</h1>
+          
+          <div class="single-author-bar">
+            <img src="https://i.pravatar.cc/100?img=33" alt="Auteur" class="author-img">
+            <div class="single-author-details">
+              <h4>Par Jean-Pierre Marc</h4>
+              <p>Publié le 10 Mai 2026 • Temps de lecture: 5 min</p>
+            </div>
+          </div>
+
+          <img src="https://picsum.photos/id/1/1200/600" alt="Hero representation" class="single-hero-image">
+
+          <div class="single-content">
+            <p>L'élaboration d'un business plan performant est le premier grand défi de tout entrepreneur. Sur le marché haïtien actuel, et plus particulièrement dans la région du Centre, les dynamiques économiques imposent de ne rien laisser au hasard.</p>
+            
+            <h2>1. Comprendre l'écosystème local</h2>
+            <p>Avant d'aligner des chiffres, il est primordial de mener une enquête de terrain. Analyser le pouvoir d'achat, les habitudes de consommation régionales et les canaux logistiques disponibles constitue le socle de votre future rentabilité.</p>
+            
+            <p>Beaucoup d'idées novatrices échouent non pas par manque de passion, mais en raison d'un décalage flagrant avec les réalités d'accès au capital et de distribution.</p>
+
+            <div class="single-gallery">
+              <img src="https://picsum.photos/id/10/500/400" alt="Image Galerie 1">
+              <img src="https://picsum.photos/id/11/500/400" alt="Image Galerie 2">
+            </div>
+
+            <h2>2. Gérer le modèle de trésorerie de façon stricte</h2>
+            <p>En 2026, la flexibilité opérationnelle est reine. Votre business plan doit inclure des scénarios alternatifs (optimiste, réaliste, pessimiste) pour parer aux fluctuations du marché et sécuriser une réserve de cash-flow robuste.</p>
+            
+            <div class="single-video-wrapper">
+              <video controls poster="https://picsum.photos/id/12/1200/600">
+                <source src="#" type="video/mp4">
+                Votre navigateur ne supporte pas les vidéos HTML5.
+              </video>
+            </div>
+          </div>
+
+          <div class="single-tags-section">
+            <span class="tag-item">Business</span>
+            <span class="tag-item">Haïti</span>
+            <span class="tag-item">Stratégie</span>
+            <span class="tag-item">Financement</span>
+          </div>
+
+          <div class="share-container">
+            <span>Partager cet article :</span>
+            <div class="share-buttons">
+              <button class="share-btn">Facebook</button>
+              <button class="share-btn">LinkedIn</button>
+              <button class="share-btn">WhatsApp</button>
+              <button class="share-btn">Copier le lien</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="related-section">
+          <h3>Articles similaires</h3>
+          <div class="articles-grid" id="relatedGrid">
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const listView = document.getElementById('listView');
+    const detailsView = document.getElementById('detailsView');
+
+    // Fonksyon pou Ouvri yon Atik epi kache lis la
+    function openArticle(id) {
+      // 1. Kache Lis la, Montre Detay Atik la
+      listView.style.display = 'none';
+      detailsView.style.display = 'block';
+      
+      // 2. Scroll moute anlè nèt otomatikman
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 3. (Opsyonèl) Jere kòd pou anpeche atik sanble vinn vid nan "Articles Similaires"
+      loadRelatedArticles();
+    }
+
+    // Fonksyon pou Fèmen Atik epi retounen nan lis la
+    function closeArticle() {
+      detailsView.style.display = 'none';
+      listView.style.display = 'block';
+      window.scrollTo({ top: 400, behavior: 'auto' });
+    }
+
+    // Ti simulation pou chaje 2 kat nan "Articles Similaires"
+    function loadRelatedArticles() {
+      const relatedGrid = document.getElementById('relatedGrid');
+      // Nou pran yon kopi yon kat ki te deja egziste pou ranpli l rapid
+      relatedGrid.innerHTML = `
+        <article class="article-card">
+          <div class="card-img-wrapper">
+            <span class="card-badge">Innovation</span>
+            <img src="https://picsum.photos/id/2/600/400" alt="">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span>📅 02 Mai 2026</span></div>
+            <h3 class="card-title">La transformation digitale au service des PME du Centre</h3>
+            <div class="card-footer">
+              <span class="read-more-btn">Lire →</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Lojik senp pou animasyon klik bouton filtraj yo
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

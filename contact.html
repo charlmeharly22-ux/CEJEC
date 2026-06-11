@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — CEJEC</title>
+  <meta name="description" content="Contactez le CEJEC : formulaire, téléphones, réseaux sociaux et localisation." />
+  <link rel="icon" type="image/jpeg" href="assets/cejec-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Lazyload Styles -->
+  <link rel="stylesheet" href="css/lazyload.css">
+</head>
+<body>
+  <div id="preloader"><div class="preloader-logo"></div></div>
+  <div class="scroll-progress"></div>
+
+  <!-- Ajoute Overlay -->
+  <div class="nav-overlay"></div>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/cejec-logoo.png" alt="Logo CEJEC" />
+        <span>CEJEC<small>Club des Jeunes Entrepreneurs</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="governance.html">Gouvernance</a></li>
+        <li><a href="etudes.html">Études</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">Contactez-nous</h1>
+      <p class="crumbs reveal delay-1"><a href="index.html">Accueil</a> / Contact</p>
+    </div>
+  </section>
+
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal reveal-left">
+          <div class="form-card">
+            <h3 style="margin-bottom:6px;">Envoyez-nous un message</h3>
+            <p style="margin-bottom:24px;">Une question, un projet ou une ambition à concrétiser ? L'équipe du CEJEC est à votre disposition pour vous informer, vous orienter et vous accompagner vers la réussite.</p>
+            <form id="contactForm">
+              <div class="form-group"><label>Nom complet</label><input required type="text" name="nom" placeholder="Votre nom" /></div>
+              <div class="form-group"><label>Email</label><input required type="email" name="email" placeholder="exemple@mail.com" /></div>
+              <div class="form-group"><label>Sujet</label><input type="text" name="sujet" placeholder="Objet du message" /></div>
+              <div class="form-group"><label>Message</label><textarea required name="message" placeholder="Votre message..."></textarea></div>
+              <!-- ✅ reCAPTCHA -->
+              <div class="g-recaptcha" data-sitekey="6LeJw_8rAAAAAC5_7McbI1_1lTZELsVgTMqDVWxZ" style="padding: 20px;"></div>
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Envoyer le message</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="contact-info reveal reveal-right">
+          <div class="contact-item"><div class="icon"><i class="fas fa-phone"></i></div><div><h4>Téléphones</h4><a href="tel:+50900000000">+509 00 00 00 00</a> <br> <a href="tel:+50911111111">+509 11 11 11 11</a></div></div>
+          <div class="contact-item"><div class="icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p><a href="mailto:contact@cejec.org">contact@cejec.org</a><br><a href="mailto:admission@cejec.org">admission@cejec.org</a></p></div></div>
+          <div class="contact-item"><div class="icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Adresse</h4><p>Rue Paul Eugène Magloire<br>Hinche, Haïti</p></div></div>
+          <div class="contact-item">
+            <div class="icon"><i class="fas fa-globe"></i></div>
+            <div style="flex:1;">
+              <h4>Réseaux sociaux</h4>
+              <p style="margin-bottom:12px;">Suivez-nous sur :</p>
+              <div class="socials">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="Instagram">ig</a>
+                <a href="#" aria-label="TikTok">tk</a>
+                <a href="#" aria-label="YouTube">yt</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-placeholder reveal">
+        <div class="map2">
+          <h2><i class="fas fa-location-dot"></i> Nous localiser</h2>
+          <div class="address">
+              <i class="fa-solid fa-location-dot"></i>
+              Rue Paul Eugène Magloire, Hinche Haïti
+          </div>
+          <iframe
+            src="https://maps.google.com/maps?q=Rue%20Paul%20Eug%C3%A8ne%20Magloire,%20Hinche,%20Ha%C3%AFti&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <section class="faq-section">
+
+        <h2 data-key="faq_title">Questions fréquentes</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <i class="faq-icon fa-solid fa-graduation-cap"></i>
+            <span data-key="faq_q1">Quelle est la durée de la formation au CEJEC ?</span>
+          </button>
+          <div class="faq-answer">
+            <p data-key="faq_a1">
+              Le programme de formation du CEJEC s’étend sur une durée de 10 mois et comprend 12 cours spécialisés en entrepreneuriat et commerce.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <i class="faq-icon fa-solid fa-certificate"></i>
+            <span data-key="faq_q2">Les diplômes sont-ils reconnus ?</span>
+          </button>
+          <div class="faq-answer">
+            <p data-key="faq_a2">
+              Oui. Les formations du CEJEC conduisent à un diplôme reconnu par le Ministère de l’Éducation Nationale et de la Formation Professionnelle (MENFP) ainsi que le Ministère du Commerce et de l’Industrie (MCI).
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <i class="faq-icon fa-solid fa-user-group"></i>
+            <span data-key="faq_q3">Qui peut intégrer le CEJEC ?</span>
+          </button>
+          <div class="faq-answer">
+            <p data-key="faq_a3">
+              Le CEJEC accueille tous les jeunes désireux de développer leurs compétences entrepreneuriales, leur leadership et leur esprit d’innovation.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+
+      <div class="contact-hours">
+
+        <h2 data-key="hours_title">Informations sur les cours</h2>
+
+        <h2 style="font-size:15px;" data-key="hours_subtitle">
+          Formation • Accompagnement • Entrepreneuriat
+        </h2>
+
+        <ul>
+          <li data-key="hours_1">
+            <i class="fa-solid fa-calendar-check"></i>
+            Durée de la formation : 10 mois
+          </li>
+
+          <li data-key="hours_2">
+            <i class="fa-solid fa-book-open"></i>
+            12 cours spécialisés en entrepreneuriat et commerce
+          </li>
+
+          <li data-key="hours_3">
+            <i class="fa-solid fa-award"></i>
+            Diplôme reconnu par le MENFP et le MCI
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-foot">CEJEC</div>
+          <p>Club des Jeunes Entrepreneurs du Centre — former, accompagner et inspirer la jeunesse vers l'excellence.</p>
+          <div class="socials" style="margin-top:18px;"><a href="#">f</a><a href="#">𝕏</a><a href="#">ig</a><a href="#">tk</a><a href="#">yt</a></div>
+        </div>
+        <div><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="governance.html">Gouvernance</a></li><li><a href="etudes.html">Études</a></li></ul></div>
+        <div><h4>Ressources</h4><ul><li><a href="actualites.html">Actualités</a></li><li><a href="etudes.html">Admissions</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h4>Contact</h4><ul><li><i class="fas fa-map-marker-alt"></i> Avenue de l'Université, Centre</li><li><i class="fas fa-phone"></i> +000 00 00 00 00</li><li><i class="fas fa-envelope"></i> contact@cejec.org</li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 CEJEC. Tous droits réservés.</span><span>Conçu avec ❤️ pour la jeunesse</span></div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Haut">↑</button>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>  
+  <script src="js/script.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/lazyload.js" defer></script>
+</body>
+</html>

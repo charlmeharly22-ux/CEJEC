@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actualités — CEJEC</title>
+  <meta name="description" content="Médias, communiqués de presse, activités, vidéos et galerie du CEJEC." />
+  <link rel="icon" type="image/jpeg" href="assets/cejec-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/galerie.css" />
+  <!-- Lazyload Styles -->
+  <link rel="stylesheet" href="css/lazyload.css"> 
+<style>
+    /* ============================================
+   CEJEC — Club des Jeunes Entrepreneurs du Centre
+   Global stylesheet
+   Palette: White (#FFFFFF), Blue (#0A4D8C), Red (#D62828)
+   ============================================ */
+
+:root {
+  --white: #ffffff;
+  --blue: #0a4d8c;
+  --blue-dark: #073864;
+  --blue-light: #e8f1fa;
+  --red: #d62828;
+  --red-dark: #a81d1d;
+  --ink: #1a1f2b;
+  --muted: #5b6675;
+  --bg-soft: #f7f9fc;
+  --border: #e5ebf2;
+  --shadow-sm: 0 2px 8px rgba(10, 77, 140, 0.06);
+  --shadow-md: 0 8px 24px rgba(10, 77, 140, 0.1);
+  --shadow-lg: 0 20px 48px rgba(10, 77, 140, 0.16);
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --container: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--blue); text-decoration: none; transition: color .25s var(--ease); }
+a:hover { color: var(--red); }
+
+.container2 {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; line-height: 1.2; color: var(--ink); }
+h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -.02em; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.01em; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+p { color: var(--muted); }
+
+/* ============ SECTIONS ============ */
+.block22 { padding: 100px 0; position: relative; }
+.block22.alt11 { background: var(--bg-soft); }
+
+.section-head22 { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+.section-head22 .eyebrow22 {
+  display: inline-block; color: var(--red); font-weight: 700; letter-spacing: .14em;
+  font-size: .8rem; text-transform: uppercase; margin-bottom: 12px;
+}
+.section-head22 p { margin-top: 14px; }
+
+/* ============ CARDS GRID ============ */
+.grid-33 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+@media (max-width: 900px) { .grid-33 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .grid-33 { grid-template-columns: 1fr; } }
+
+.card22 {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  position: relative; overflow: hidden;
+}
+.card22::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--red));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s var(--ease);
+}
+.card22:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.card22:hover::before { transform: scaleX(1); }
+.card22 .icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: var(--blue-light); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; margin-bottom: 18px;
+  transition: transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+}
+.card22:hover .icon { background: var(--red); color: var(--white); transform: rotate(-6deg) scale(1.05); }
+.card22 h3 { margin-bottom: 8px; }
+
+/* ============ COUNTERS ============ */
+.counter .num2 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; color: var(--red); }
+
+/* ============ TIMELINE / VALUES LIST ============ */
+.value-list23 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+@media (max-width: 720px) { .value-list23 { grid-template-columns: 1fr; } }
+.value-item23 {
+  display: flex; gap: 16px; padding: 22px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform .3s var(--ease), border-color .3s var(--ease);
+}
+.value-item23:hover { transform: translateX(6px); border-color: var(--blue); }
+.value-item23 .num2 {
+  flex: 0 0 44px; height: 44px; border-radius: 12px;
+  background: var(--red); color: var(--white);
+  display:flex; align-items:center; justify-content:center;
+  font-weight: 700;
+}
+
+/* ============ BLOG CARDS ============ */
+.blog-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    transition: all 0.35s ease;
+}
+
+.blog-blue { background: var(--blue-light); color: var(--blue); }
+.blog-red { background: #ffe8e8; color: var(--red); }
+.blog-light { background: #f0f4f8; color: var(--ink); }
+
+.blog-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.blog-date i {
+    color: var(--blue);
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--blue);
+    font-weight: 600;
+    margin-top: 16px;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--red);
+    gap: 12px;
+}
+
+/* ============ MEDIA THUMB ============ */
+.media-thumb {
+    position: relative;
+    height: 200px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.media-blue { background: linear-gradient(135deg, var(--blue), #1a6db5); }
+.media-red { background: linear-gradient(135deg, var(--red), #e85d5d); }
+.media-light { background: linear-gradient(135deg, #6c7a89, #95a5a6); }
+
+.media-thumb > i:first-child {
+    font-size: 3.5rem;
+    opacity: 0.9;
+}
+
+.media-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.media-content h3 {
+    margin-bottom: 8px;
+}
+
+/* ============ MEDIA FILTER ============ */
+.media-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.media-filter button {
+    padding: 10px 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    color: var(--ink);
+    font-family: 'Poppins', sans-serif;
+}
+
+.media-filter button.active,
+.media-filter button:hover {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+}
+
+.media-filter button i {
+    margin-right: 8px;
+}
+
+/* ============ PAGINATION ============ */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 40px 0 20px;
+    margin: 20px 0 0;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--white);
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s var(--ease);
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.pagination-btn:disabled {
+    border-color: var(--border);
+    color: var(--muted);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination-btn .arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.page-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+    background: var(--white);
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    transition: all 0.3s var(--ease);
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-number:hover {
+    background: var(--blue-light);
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.page-number.active {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+}
+
+/* Pagination Styles Améliorés */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 40px 0 20px;
+    margin: 20px 0 0;
+    flex-wrap: wrap;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: var(--white);
+    color: var(--blue);
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.pagination-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(10, 77, 140, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.pagination-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 77, 140, 0.2);
+}
+
+.pagination-btn:disabled {
+    border-color: var(--border);
+    color: var(--muted);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination-btn .arrow {
+    font-size: 1.4rem;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.page-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+    background: var(--white);
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    transition: all 0.3s var(--ease);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.page-number:hover {
+    background: var(--blue-light);
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(10, 77, 140, 0.15);
+}
+
+.page-number.active {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: var(--white);
+    border-color: var(--blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(10, 77, 140, 0.3);
+    font-weight: 700;
+}
+
+.page-number.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+}
+
+/* Animation pou kat yo lè yo parèt */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============ LIGHTBOX OVERLAY (Dezyèm Lightbox) ============ */
+#lightboxOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 77, 140, 0.95);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+#lightboxOverlay.active {
+    display: flex;
+    animation: fadeIn 0.3s var(--ease);
+}
+
+#lightboxClose {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    color: var(--white);
+    font-size: 48px;
+    cursor: pointer;
+    z-index: 100000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s var(--ease);
+    line-height: 1;
+}
+
+#lightboxClose:hover {
+    background: var(--red);
+    transform: rotate(90deg);
+}
+
+#lightboxPrev, 
+#lightboxNext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--white);
+    font-size: 40px;
+    cursor: pointer;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s var(--ease);
+    user-select: none;
+    z-index: 100000;
+    border: none;
+}
+
+#lightboxPrev:hover, 
+#lightboxNext:hover {
+    background: var(--blue);
+    transform: translateY(-50%) scale(1.1);
+}
+
+#lightboxPrev {
+    left: 24px;
+}
+
+#lightboxNext {
+    right: 24px;
+}
+
+#lightboxContent {
+    max-width: 80%;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightboxContent img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+}
+
+#lightboxCaption {
+    color: var(--white);
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 80%;
+    font-weight: 500;
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn { 
+    from { transform: scale(.8); opacity: 0; } 
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    #lightboxPrev {
+        left: 10px;
+        font-size: 30px;
+        padding: 10px 15px;
+    }
+    
+    #lightboxNext {
+        right: 10px;
+        font-size: 30px;
+        padding: 10px 15px;
+    }
+    
+    #lightboxClose {
+        top: 15px;
+        right: 15px;
+        font-size: 36px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    #lightboxContent {
+        max-width: 90%;
+    }
+    
+    #lightboxCaption {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+    
+    .pagination {
+        gap: 10px;
+        padding: 30px 10px 20px;
+    }
+    
+    .pagination-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .page-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ============ MOBILE 320px ============ */
+@media (max-width: 480px) { 
+    .crumbs {
+        font-size: 0.8rem;
+    }
+    
+    /* Sections */
+    .block22 {
+        padding: 50px 0;
+    }
+    
+    .section-head22 {
+        margin-bottom: 40px;
+    }
+    
+    .section-head22 h2 {
+        font-size: 1.4rem;
+    }
+    
+    .section-head22 p {
+        font-size: 0.9rem;
+    }
+    
+    .eyebrow22 {
+        font-size: 0.7rem;
+    }
+    
+    /* Cards Grid */
+    .grid-33 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card22 {
+        padding: 20px 18px;
+    }
+    
+    .card22 h3 {
+        font-size: 1.1rem;
+    }
+    
+    .card22 p {
+        font-size: 0.85rem;
+    }
+    
+    /* Blog Cards */
+    .blog-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+    }
+    
+    .blog-date {
+        font-size: 0.75rem;
+    }
+    
+    .read-more {
+        font-size: 0.85rem;
+    }
+    
+    /* Values List */
+    .value-list23 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .value-item23 {
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .value-item23 .num2 {
+        flex: 0 0 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    
+    .value-item23 h4 {
+        font-size: 1rem;
+    }
+    
+    .value-item23 p {
+        font-size: 0.8rem;
+    }
+    
+    /* Media Thumb */
+    .media-thumb {
+        height: 160px;
+        font-size: 2.5rem;
+    }
+    
+    .media-thumb > i:first-child {
+        font-size: 2.8rem;
+    }
+    
+    .media-badge {
+        bottom: 8px;
+        right: 8px;
+        padding: 3px 10px;
+        font-size: 0.7rem;
+    }
+    
+    /* Media Filter */
+    .media-filter {
+        gap: 6px;
+        margin-bottom: 30px;
+    }
+    
+    .media-filter button {
+        padding: 7px 14px;
+        font-size: 0.75rem;
+    }
+    
+    .media-filter button i {
+        margin-right: 4px;
+        font-size: 0.7rem;
+    }
+    
+    /* Pagination */
+    .pagination {
+        gap: 6px;
+        padding: 25px 5px 15px;
+        flex-wrap: wrap;
+    }
+    
+    .pagination-btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        gap: 4px;
+    }
+    
+    .pagination-btn .arrow {
+        font-size: 1rem;
+    }
+    
+    .pagination-btn .text {
+        display: none;
+    }
+    
+    .pagination-numbers {
+        gap: 4px;
+    }
+    
+    .page-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+        border-radius: 50%;
+    }
+    
+    /* Lightbox Overlay */
+    #lightboxOverlay {
+        backdrop-filter: blur(5px);
+    }
+    
+    #lightboxPrev {
+        left: 5px;
+        font-size: 22px;
+        padding: 8px 10px;
+        border-radius: 6px;
+    }
+    
+    #lightboxNext {
+        right: 5px;
+        font-size: 22px;
+        padding: 8px 10px;
+        border-radius: 6px;
+    }
+    
+    #lightboxClose {
+        top: 10px;
+        right: 10px;
+        font-size: 28px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    #lightboxContent {
+        max-width: 95%;
+    }
+    
+    #lightboxContent img {
+        max-height: 60vh;
+    }
+    
+    #lightboxCaption {
+        font-size: 0.85rem;
+        max-width: 95%;
+        padding: 8px 16px;
+        margin-top: 12px;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 40px 0 0;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .brand-foot {
+        font-size: 1.3rem;
+    }
+    
+    .footer-grid h4 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .footer-grid p,
+    .footer-grid ul li {
+        font-size: 0.85rem;
+    }
+    
+    .socials {
+        gap: 8px;
+    }
+    
+    .socials a {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        padding: 16px 0;
+    }
+    
+    
+    /* Content Cards Adjustments */
+    .media-content h3 {
+        font-size: 1rem;
+    }
+    
+    .media-content p {
+        font-size: 0.8rem;
+    }
+    
+    /* General Typography */
+    h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    h3 {
+        font-size: 1rem !important;
+    }
+    
+    h4 {
+        font-size: 0.9rem !important;
+    }
+    
+    p {
+        font-size: 0.85rem !important;
+    }
+}
+</style>
+</head>
+<body>
+  <div id="preloader"><div class="preloader-logo"></div></div>
+  <div class="scroll-progress"></div>
+
+  <!-- Ajoute Overlay -->
+  <div class="nav-overlay"></div>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/cejec-logoo.png" alt="Logo CEJEC" />
+        <span>CEJEC<small>Club des Jeunes Entrepreneurs</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="governance.html">Gouvernance</a></li>
+        <li><a href="etudes.html">Études</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">Actualités</h1>
+      <p class="crumbs reveal delay-1"><a href="index.html">Accueil</a> / Actualités</p>
+    </div>
+  </section>
+
+  <!-- MÉDIAS / ACTUALITÉS -->
+  <section class="block22">
+    <div class="container2">
+
+      <div class="section-head22 reveal">
+        <span class="eyebrow22">Actualités & Communiqués</span>
+        <h2>Suivez la vie et les événements du CEJEC</h2>
+        <p>
+          Découvrez les dernières informations, activités, conférences et réalisations
+          du Centre d'Études des Jeunes en Entrepreneuriat et Commerce.
+        </p>
+      </div>
+      <div class="grid-33">
+        <!-- Article 1 -->
+        <article class="card22 reveal">
+          <div class="blog-icon blog-blue">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="blog-date">
+            <i class="fa-regular fa-calendar"></i>
+            Promotion 2025
+          </span>
+          <h3>Ouverture des inscriptions pour la nouvelle promotion</h3>
+          <p>
+            Le CEJEC lance officiellement les inscriptions pour sa nouvelle cohorte.
+            Les jeunes souhaitant se former en entrepreneuriat et commerce peuvent
+            désormais intégrer un programme reconnu de 10 mois.
+          </p>
+          <a href="blog.html" class="read-more">
+            Lire plus
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+        <!-- Article 2 -->
+        <article class="card22 reveal delay-1">
+          <div class="blog-icon blog-red">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="blog-date">
+            <i class="fa-regular fa-calendar"></i>
+            Conférence & Leadership
+          </span>
+          <h3>Rencontre avec des professionnels et entrepreneurs expérimentés</h3>
+          <p>
+            Dans le cadre de sa mission d'accompagnement, le CEJEC organise régulièrement
+            des conférences, ateliers et rencontres favorisant le partage d'expériences
+            et le développement du leadership des jeunes.
+          </p>
+          <a href="blog.html" class="read-more">
+            Lire plus
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+        <!-- Article 3 -->
+        <article class="card22 reveal delay-2">
+          <div class="blog-icon blog-light">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <span class="blog-date">
+            <i class="fa-regular fa-calendar"></i>
+            Innovation & Entrepreneuriat
+          </span>
+          <h3>Le CEJEC continue de former les leaders économiques de demain</h3>
+          <p>
+            Grâce à une pédagogie pratique, des immersions sur le terrain et un réseau
+            d'affaires solide, le CEJEC poursuit sa mission de transformation du potentiel
+            des jeunes en entreprises durables et créatrices d'emplois.
+          </p>
+          <a href="blog.html" class="read-more">
+            Lire plus
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITÉS & ÉVÉNEMENTS -->
+  <section class="block22 alt11">
+    <div class="container2">
+
+      <div class="section-head22 reveal">
+        <span class="eyebrow22">Activités & Événements</span>
+        <h2>Les rendez-vous qui façonnent les leaders de demain</h2>
+        <p>
+          Le CEJEC organise régulièrement des activités académiques, des conférences,
+          des rencontres professionnelles et des cérémonies visant à renforcer
+          l'esprit entrepreneurial et le leadership des jeunes.
+        </p>
+      </div>
+
+      <div class="value-list23">
+
+        <!-- Conférences -->
+        <div class="value-item23 reveal">
+          <div class="num2">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+
+          <div>
+            <h4>Conférences et ateliers entrepreneuriaux</h4>
+            <p>
+              Rencontres avec des entrepreneurs, cadres et spécialistes afin
+              d'enrichir les connaissances et partager des expériences concrètes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Immersion -->
+        <div class="value-item23 reveal delay-1">
+          <div class="num2">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+
+          <div>
+            <h4>Immersions et activités de terrain</h4>
+            <p>
+              Des expériences pratiques permettant aux étudiants de découvrir
+              les réalités du monde des affaires et de développer leurs projets.
+            </p>
+          </div>
+        </div>
+
+        <!-- Réseautage -->
+        <div class="value-item23 reveal delay-2">
+          <div class="num2">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+
+          <div>
+            <h4>Rencontres de réseautage et partenariats</h4>
+            <p>
+              Des espaces favorisant la collaboration, l'entraide et la création
+              d'opportunités professionnelles entre jeunes entrepreneurs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Graduation -->
+        <div class="value-item23 reveal delay-3">
+          <div class="num2">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <div>
+            <h4>Cérémonies de graduation et distinctions</h4>
+            <p>
+              Des événements marquant la réussite des promotions et récompensant
+              l'excellence, le leadership et l'engagement des étudiants.
+            </p>
+          </div>
+        </div>
+
+        <!-- Journées spéciales -->
+        <div class="value-item23 reveal delay-4">
+          <div class="num2">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+
+          <div>
+            <h4>Journées spéciales et activités institutionnelles</h4>
+            <p>
+              Séminaires, journées portes ouvertes et célébrations destinés
+              à promouvoir l'entrepreneuriat et renforcer la vie institutionnelle.
+            </p>
+          </div>
+        </div>
+
+        <!-- Leadership -->
+        <div class="value-item23 reveal delay-5">
+          <div class="num2">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+
+          <div>
+            <h4>Leadership et développement personnel</h4>
+            <p>
+              Des activités visant à développer la confiance en soi, l'art oratoire,
+              le sens du leadership et l'esprit d'initiative.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+<!-- MÉDIATHÈQUE -->
+<section class="block22 alt11">
+  <div class="container2">
+
+    <div class="section-head22 reveal">
+      <span class="eyebrow22">Médiathèque</span>
+      <h2>Revivez les moments forts du CEJEC</h2>
+      <p>
+        Découvrez en images et en vidéos les formations, conférences,
+        cérémonies et activités qui rythment la vie du Centre d'Études des
+        Jeunes en Entrepreneuriat et Commerce.
+      </p>
+    </div>
+
+    <!-- FILTRES -->
+    <div class="media-filter reveal">
+      <button class="active" data-filter="tous">
+        <i class="fa-solid fa-border-all"></i> Tous
+      </button>
+      <button data-filter="photos">
+        <i class="fa-solid fa-camera"></i> Photos
+      </button>
+      <button data-filter="videos">
+        <i class="fa-solid fa-video"></i> Vidéos
+      </button>
+      <button data-filter="promotions">
+        <i class="fa-solid fa-graduation-cap"></i> Promotions
+      </button>
+      <button data-filter="conferences">
+        <i class="fa-solid fa-chalkboard-user"></i> Conférences
+      </button>
+      <button data-filter="activites">
+        <i class="fa-solid fa-users"></i> Activités
+      </button>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid-33 media-grid">
+      <!-- CARTE 1 -->
+      <article class="card22 reveal" data-category="videos" data-gallery="0">
+        <div class="media-thumb media-blue">
+          <i class="fa-solid fa-circle-play"></i>
+          <div class="media-badge"><i class="fa-solid fa-video"></i> Vidéo</div>
+        </div>
+        <div class="media-content">
+          <h3>Présentation du CEJEC</h3>
+          <p>Découvrez l'histoire, la mission et la vision du CEJEC à travers une vidéo de présentation institutionnelle.</p>
+        </div>
+      </article>
+
+      <!-- CARTE 2 -->
+      <article class="card22 reveal delay-1" data-category="photos,conferences" data-gallery="1">
+        <div class="media-thumb media-red">
+          <i class="fa-solid fa-microphone-lines"></i>
+          <div class="media-badge"><i class="fa-solid fa-camera"></i> Photos</div>
+        </div>
+        <div class="media-content">
+          <h3>Conférences et ateliers</h3>
+          <p>Retour en images sur les conférences, ateliers de formation et interventions des professionnels invités.</p>
+        </div>
+      </article>
+
+      <!-- CARTE 3 -->
+      <article class="card22 reveal delay-2" data-category="photos,promotions" data-gallery="2">
+        <div class="media-thumb media-light">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <div class="media-badge"><i class="fa-solid fa-camera"></i> Photos</div>
+        </div>
+        <div class="media-content">
+          <h3>Cérémonies de graduation</h3>
+          <p>Revivez les moments marquants des cérémonies de remise des diplômes des différentes promotions.</p>
+        </div>
+      </article>
+
+      <!-- CARTE 4 -->
+      <article class="card22 reveal" data-category="photos,activites" data-gallery="3">
+        <div class="media-thumb media-blue">
+          <i class="fa-solid fa-building"></i>
+          <div class="media-badge"><i class="fa-solid fa-camera"></i> Photos</div>
+        </div>
+        <div class="media-content">
+          <h3>Immersions et sorties pédagogiques</h3>
+          <p>Des expériences pratiques permettant aux étudiants de découvrir le monde des affaires et de l'entrepreneuriat.</p>
+        </div>
+      </article>
+
+      <!-- CARTE 5 -->
+      <article class="card22 reveal delay-1" data-category="videos,activites" data-gallery="4">
+        <div class="media-thumb media-red">
+          <i class="fa-solid fa-network-wired"></i>
+          <div class="media-badge"><i class="fa-solid fa-video"></i> Vidéo</div>
+        </div>
+        <div class="media-content">
+          <h3>Rencontres et réseautage</h3>
+          <p>Échanges, partenariats et rencontres entre étudiants, entrepreneurs et professionnels.</p>
+        </div>
+      </article>
+
+      <!-- CARTE 6 -->
+      <article class="card22 reveal delay-2" data-category="photos,activites" data-gallery="5">
+        <div class="media-thumb media-light">
+          <i class="fa-solid fa-users"></i>
+          <div class="media-badge"><i class="fa-solid fa-camera"></i> Photos</div>
+        </div>
+        <div class="media-content">
+          <h3>Vie estudiantine</h3>
+          <p>Une communauté dynamique animée par des activités, des projets et des moments de partage.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination" id="pagination">
+      <button class="pagination-btn" id="prevBtn">
+        <span class="arrow">‹</span> <span class="text">Précédent</span>
+      </button>
+      <div class="pagination-numbers" id="paginationNumbers"></div>
+      <button class="pagination-btn" id="nextBtn">
+        <span class="text">Suivant</span> <span class="arrow">›</span>
+      </button>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightboxOverlay">
+      <span id="lightboxClose">&times;</span>
+      <span id="lightboxPrev">&#10094;</span>
+      <div id="lightboxContent"></div>
+      <span id="lightboxNext">&#10095;</span>
+      <div id="lightboxCaption"></div>
+    </div>
+
+  </div>
+</section>
+
+  <footer class="reveal">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-foot">CEJEC</div>
+          <p>Club des Jeunes Entrepreneurs du Centre — former, accompagner et inspirer la jeunesse vers l'excellence.</p>
+          <div class="socials" style="margin-top:18px;"><a href="#">f</a><a href="#">𝕏</a><a href="#">ig</a><a href="#">tk</a><a href="#">yt</a></div>
+        </div>
+        <div><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="governance.html">Gouvernance</a></li><li><a href="etudes.html">Études</a></li></ul></div>
+        <div><h4>Ressources</h4><ul><li><a href="actualites.html">Actualités</a></li><li><a href="etudes.html">Admissions</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h4>Contact</h4><ul><li>📍 Avenue de l'Université, Centre</li><li>📞 +000 00 00 00 00</li><li>✉ contact@cejec.org</li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 CEJEC. Tous droits réservés.</span><span>Conçu avec ❤️ pour la jeunesse</span></div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Haut">↑</button>
+
+<script>
+(function() {
+    'use strict';
+
+    // ============ KONFIGIRASYON ============
+    var CONFIG = {
+        cardsPerPage: 3,
+        galleryImages: [
+            { src: 'assets/galerie/cejec-presentation.jpg', caption: 'Présentation du CEJEC', icon: 'fa-circle-play' },
+            { src: 'assets/galerie/cejec-conferences.jpg', caption: 'Conférences et ateliers', icon: 'fa-microphone-lines' },
+            { src: 'assets/galerie/cejec-graduation.jpg', caption: 'Cérémonies de graduation', icon: 'fa-graduation-cap' },
+            { src: 'assets/galerie/cejec-immersion.jpg', caption: 'Immersions et sorties pédagogiques', icon: 'fa-building' },
+            { src: 'assets/galerie/cejec-reseautage.jpg', caption: 'Rencontres et réseautage', icon: 'fa-network-wired' },
+            { src: 'assets/galerie/cejec-vie-etudiante.jpg', caption: 'Vie estudiantine', icon: 'fa-users' }
+        ]
+    };
+
+    // ============ ETA GLOBAL ============
+    var currentPage = 1;
+    var totalPages = 1;
+    var activeFilter = 'tous';
+    var currentLightboxIndex = 0;
+
+    // ============ ELEMAN DOM ============
+    var DOM = {
+        mediaGrid: null,
+        filterBtns: null,
+        prevBtn: null,
+        nextBtn: null,
+        paginationNumbers: null,
+        paginationContainer: null,
+        lightbox: null,
+        lightboxContent: null,
+        lightboxCaption: null,
+        lightboxClose: null,
+        lightboxPrev: null,
+        lightboxNext: null
+    };
+
+    // ============ INISYALIZASYON ============
+    function init() {
+        DOM.mediaGrid = document.querySelector('.media-grid');
+        if (!DOM.mediaGrid) return;
+
+        DOM.filterBtns = document.querySelectorAll('.media-filter button');
+        DOM.prevBtn = document.getElementById('prevBtn');
+        DOM.nextBtn = document.getElementById('nextBtn');
+        DOM.paginationNumbers = document.getElementById('paginationNumbers');
+        DOM.paginationContainer = document.getElementById('pagination');
+        DOM.lightbox = document.getElementById('lightboxOverlay');
+        DOM.lightboxContent = document.getElementById('lightboxContent');
+        DOM.lightboxCaption = document.getElementById('lightboxCaption');
+        DOM.lightboxClose = document.getElementById('lightboxClose');
+        DOM.lightboxPrev = document.getElementById('lightboxPrev');
+        DOM.lightboxNext = document.getElementById('lightboxNext');
+
+        initFilters();
+        initPagination();
+        initLightbox();
+        showPage(1);
+    }
+
+    // ============ 1. SISTÈM FILTRAJ (KOREKSYON) ============
+    function initFilters() {
+        if (!DOM.filterBtns || DOM.filterBtns.length === 0) return;
+
+        // Pou chak bouton filt
+        for (var i = 0; i < DOM.filterBtns.length; i++) {
+            DOM.filterBtns[i].addEventListener('click', function() {
+                // Retire 'active' tout bouton
+                for (var j = 0; j < DOM.filterBtns.length; j++) {
+                    DOM.filterBtns[j].classList.remove('active');
+                }
+                
+                // Mete bouton sa a aktif
+                this.classList.add('active');
+                
+                // Pran valè filt la
+                activeFilter = this.getAttribute('data-filter');
+                
+                // Retounen paj 1
+                currentPage = 1;
+                
+                // Aplike filt la epi afiche paj
+                filterAndShowCards();
+            });
+        }
+    }
+
+    function filterAndShowCards() {
+        // Pran tout kat yo
+        var allCards = DOM.mediaGrid.querySelectorAll('.card22');
+        var allVisible = []; // Lis kat ki pase filt la
+
+        // Pase chak kat nan tès
+        for (var i = 0; i < allCards.length; i++) {
+            var card = allCards[i];
+            var categoryAttr = card.getAttribute('data-category');
+
+            if (activeFilter === 'tous') {
+                // Si "Tous", tout kat vizib
+                allVisible.push(card);
+            } else if (categoryAttr) {
+                // Separe kategori yo: "photos,conferences" → ["photos", "conferences"]
+                var categories = categoryAttr.split(',');
+                var match = false;
+                
+                // Netwaye espas nan chak kategori
+                for (var c = 0; c < categories.length; c++) {
+                    categories[c] = categories[c].trim();
+                    // Verifye si youn nan kategori yo egal ak filt la
+                    if (categories[c] === activeFilter) {
+                        match = true;
+                        break;
+                    }
+                }
+                
+                if (match) {
+                    allVisible.push(card);
+                }
+            }
+        }
+
+        // Kache tout kat an premye
+        for (var k = 0; k < allCards.length; k++) {
+            allCards[k].style.display = 'none';
+            allCards[k].style.animation = '';
+        }
+
+        // Si pa gen kat ki matche, sòti
+        if (allVisible.length === 0) {
+            if (DOM.paginationContainer) {
+                DOM.paginationContainer.style.display = 'none';
+            }
+            totalPages = 0;
+            updatePaginationUI();
+            return;
+        }
+
+        // Kalkile total paj
+        totalPages = Math.ceil(allVisible.length / CONFIG.cardsPerPage);
+
+        // Verifye paj valab
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        // Kalkile ki kat pou afiche nan paj sa a
+        var startIndex = (currentPage - 1) * CONFIG.cardsPerPage;
+        var endIndex = startIndex + CONFIG.cardsPerPage;
+        if (endIndex > allVisible.length) endIndex = allVisible.length;
+
+        // Afiche selman kat pou paj sa a
+        for (var d = startIndex; d < endIndex; d++) {
+            allVisible[d].style.display = '';
+            allVisible[d].style.animation = 'fadeInUp 0.5s ease forwards';
+        }
+
+        // Afiche oswa kache pagination
+        if (DOM.paginationContainer) {
+            if (totalPages <= 1) {
+                DOM.paginationContainer.style.display = 'none';
+            } else {
+                DOM.paginationContainer.style.display = 'flex';
+            }
+        }
+
+        updatePaginationUI();
+    }
+
+    // ============ 2. SISTÈM PAGINASYON ============
+    function initPagination() {
+        if (!DOM.prevBtn || !DOM.nextBtn) return;
+
+        DOM.prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                filterAndShowCards();
+                scrollToGrid();
+            }
+        });
+
+        DOM.nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+                currentPage++;
+                filterAndShowCards();
+                scrollToGrid();
+            }
+        });
+    }
+
+    function showPage(page) {
+        currentPage = page;
+        filterAndShowCards();
+    }
+
+    function updatePaginationUI() {
+        if (!DOM.prevBtn || !DOM.nextBtn) return;
+
+        DOM.prevBtn.disabled = (currentPage <= 1);
+        DOM.prevBtn.style.opacity = DOM.prevBtn.disabled ? '0.5' : '1';
+        DOM.prevBtn.style.cursor = DOM.prevBtn.disabled ? 'not-allowed' : 'pointer';
+
+        DOM.nextBtn.disabled = (currentPage >= totalPages);
+        DOM.nextBtn.style.opacity = DOM.nextBtn.disabled ? '0.5' : '1';
+        DOM.nextBtn.style.cursor = DOM.nextBtn.disabled ? 'not-allowed' : 'pointer';
+
+        renderPageNumbers();
+    }
+
+    function renderPageNumbers() {
+        if (!DOM.paginationNumbers) return;
+        DOM.paginationNumbers.innerHTML = '';
+
+        if (totalPages <= 1) return;
+
+        for (var i = 1; i <= totalPages; i++) {
+            var pageBtn = document.createElement('span');
+            pageBtn.className = 'page-number';
+            if (i === currentPage) {
+                pageBtn.classList.add('active');
+            }
+            pageBtn.textContent = i;
+
+            (function(pageNum) {
+                pageBtn.addEventListener('click', function() {
+                    if (pageNum !== currentPage) {
+                        currentPage = pageNum;
+                        filterAndShowCards();
+                        scrollToGrid();
+                    }
+                });
+            })(i);
+
+            DOM.paginationNumbers.appendChild(pageBtn);
+        }
+    }
+
+    function scrollToGrid() {
+        if (DOM.mediaGrid) {
+            DOM.mediaGrid.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
+    // ============ 3. SISTÈM LIGHTBOX ============
+    function initLightbox() {
+        if (!DOM.lightbox || !DOM.mediaGrid) return;
+
+        DOM.mediaGrid.addEventListener('click', function(e) {
+            var card = e.target.closest('.card22');
+            if (!card) return;
+
+            var galleryIndex = parseInt(card.getAttribute('data-gallery'));
+            if (!isNaN(galleryIndex) && galleryIndex >= 0 && galleryIndex < CONFIG.galleryImages.length) {
+                openLightbox(galleryIndex);
+            }
+        });
+
+        if (DOM.lightboxClose) {
+            DOM.lightboxClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeLightbox();
+            });
+        }
+
+        if (DOM.lightboxPrev) {
+            DOM.lightboxPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navigateLightbox('prev');
+            });
+        }
+
+        if (DOM.lightboxNext) {
+            DOM.lightboxNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navigateLightbox('next');
+            });
+        }
+
+        DOM.lightbox.addEventListener('click', function(e) {
+            if (e.target === DOM.lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!DOM.lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox('prev');
+            } else if (e.key === 'ArrowRight') {
+                navigateLightbox('next');
+            }
+        });
+
+        if (DOM.lightboxContent) {
+            DOM.lightboxContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    }
+
+    function openLightbox(index) {
+        currentLightboxIndex = index;
+        updateLightboxContent();
+        DOM.lightbox.classList.add('active');
+        DOM.lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        DOM.lightbox.classList.remove('active');
+        DOM.lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(direction) {
+        if (direction === 'prev') {
+            currentLightboxIndex--;
+            if (currentLightboxIndex < 0) {
+                currentLightboxIndex = CONFIG.galleryImages.length - 1;
+            }
+        } else {
+            currentLightboxIndex++;
+            if (currentLightboxIndex >= CONFIG.galleryImages.length) {
+                currentLightboxIndex = 0;
+            }
+        }
+        updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+        if (!DOM.lightboxContent) return;
+
+        var image = CONFIG.galleryImages[currentLightboxIndex];
+
+        // Loader
+        DOM.lightboxContent.innerHTML =
+            '<div style="width:100%;height:400px;display:flex;align-items:center;justify-content:center;color:white;font-size:3rem;">' +
+            '<i class="fa-solid fa-spinner fa-spin"></i>' +
+            '</div>';
+
+        // Chaje imaj
+        var img = new Image();
+
+        img.onload = function() {
+            DOM.lightboxContent.innerHTML =
+                '<img src="' + image.src + '" alt="' + image.caption + '" ' +
+                'style="max-width:100%;max-height:70vh;object-fit:contain;border-radius:14px;box-shadow:0 20px 48px rgba(0,0,0,0.3);">';
+        };
+
+        img.onerror = function() {
+            DOM.lightboxContent.innerHTML =
+                '<div style="width:100%;max-width:800px;aspect-ratio:16/9;' +
+                'background:linear-gradient(135deg,#0a4d8c,#d62828);' +
+                'display:flex;align-items:center;justify-content:center;' +
+                'border-radius:14px;color:white;font-size:8rem;' +
+                'box-shadow:0 20px 48px rgba(0,0,0,0.3);">' +
+                '<i class="fa-solid ' + (image.icon || 'fa-image') + '"></i>' +
+                '</div>';
+        };
+
+        img.src = image.src;
+
+        // Mete caption
+        if (DOM.lightboxCaption) {
+            DOM.lightboxCaption.textContent = image.caption;
+        }
+    }
+
+    // ============ DEMARAJ ============
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();
+</script>
+
+  <script src="js/script.js"></script>
+  <script src="js/galerie.js"></script>
+  <script src="js/lazyload.js" defer></script>
+</body>
+</html>
